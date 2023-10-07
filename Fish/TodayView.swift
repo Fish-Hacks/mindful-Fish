@@ -51,6 +51,7 @@ struct TodayView: View {
                             }
                             .padding()
                         }
+                        .padding(.bottom, 64)
                     }
                     .ignoresSafeArea(.container, edges: .top)
                     

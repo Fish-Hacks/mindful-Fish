@@ -76,13 +76,7 @@ struct ChallengeRowView: View {
         .background(.black)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .onTapGesture {
-            withAnimation {
-                timesCompleted += 1
-            }
-            
-            if timesCompleted == 3 {
-                onDelete()
-            }
+            onDelete()
         }
         .padding(.horizontal)
     }

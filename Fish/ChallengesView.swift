@@ -55,15 +55,22 @@ struct ChallengesView: View {
                     Text("Weekly Challenges")
                         .font(.headline)
                         .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
                     ScrollView {
                         ForEach($viewModel.challenges) { $challenge in
                             ChallengeRowView(challenge: challenge.challenge, 
                                              timesCompleted: $challenge.timesCompleted) {
                                 withAnimation {
-                                    viewModel.brineShrimp += challenge.challenge.reward
-                                    viewModel.challenges.removeAll {
-                                        $0.id == challenge.id
+                                    challenge.timesCompleted += 1
+                                    
+                                    if challenge.timesCompleted == 3 {
+                                        viewModel.brineShrimp += challenge.challenge.reward
+                                        viewModel.challenges.removeAll {
+                                            $0.id == challenge.id
+                                        }
+                                    } else {
+                                        viewModel.brineShrimp += 10
                                     }
                                 }
                             }

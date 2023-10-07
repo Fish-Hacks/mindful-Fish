@@ -39,7 +39,7 @@ struct FishView: View {
                                 FishSceneView(fishRendererManager: fishRendererManager)
                                     .matchedGeometryEffect(id: "fish", in: namespace)
                                     .frame(width: 200, height: 200)
-                                    .position(getPoint(for: 0, frameWidth: geometry.size.width))
+                                    .position(getPoint(for: viewModel.fishLocation, frameWidth: geometry.size.width))
                             }
                         }
                     }
@@ -88,7 +88,7 @@ struct FishView: View {
                             .fill(.secondary)
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundStyle(.blue)
-                            .frame(width: geometry.size.width * 0.7)
+                            .frame(width: min(geometry.size.width * (Double(viewModel.brineShrimp) / 100), geometry.size.width))
                     }
                     .frame(height: 16)
                 }
