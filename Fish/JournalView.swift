@@ -9,6 +9,7 @@ import SwiftUI
 
 struct JournalView: View {
     @State private var todayLogMessage = ""
+    @State private var showMonthlyRecap = false
     
     var body: some View {
         NavigationStack {
@@ -74,7 +75,7 @@ struct JournalView: View {
                             }
                             
                             Button {
-                                
+                                showMonthlyRecap.toggle()
                             } label: {
                                 ZStack {
                                     Circle()
@@ -94,6 +95,9 @@ struct JournalView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .foregroundStyle(.black)
                 .padding(.horizontal)
+                .sheet(isPresented: $showMonthlyRecap) {
+                    MonthSummaryView()
+                }
                 
                 VStack(alignment: .leading) {
                     Text("Logs")

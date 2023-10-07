@@ -24,6 +24,7 @@
 		32ECE0CA2AD0EA2E0023EAAE /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */; };
 		32ECE0CC2AD0EB320023EAAE /* TodayArticlePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */; };
 		32ECE0CE2AD0ED770023EAAE /* TodayArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */; };
+		32ECE0D02AD0FC7E0023EAAE /* MonthSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0CF2AD0FC7E0023EAAE /* MonthSummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayArticlePreviewView.swift; sourceTree = "<group>"; };
 		32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayArticle.swift; sourceTree = "<group>"; };
+		32ECE0CF2AD0FC7E0023EAAE /* MonthSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				32797BC62AD0B6CC0041E3CC /* FishSceneView.swift */,
 				32797BC42AD0B5750041E3CC /* FishRendererManager.swift */,
 				32797BBC2AD072ED0041E3CC /* ChallengesView.swift */,
+				32ECE0CF2AD0FC7E0023EAAE /* MonthSummaryView.swift */,
 				32797BC22AD0B4E60041E3CC /* Fish.scn */,
 				32797BBE2AD0B2C90041E3CC /* ChallengeRowView.swift */,
 				32797BC02AD0B2CD0041E3CC /* Challenge.swift */,
@@ -186,6 +189,7 @@
 				323C5A722AD05AD400CB8694 /* ContentView.swift in Sources */,
 				323C5A802AD0677F00CB8694 /* JournalView.swift in Sources */,
 				32797BBF2AD0B2C90041E3CC /* ChallengeRowView.swift in Sources */,
+				32ECE0D02AD0FC7E0023EAAE /* MonthSummaryView.swift in Sources */,
 				323C5A702AD05AD400CB8694 /* FishApp.swift in Sources */,
 				32797BC72AD0B6CC0041E3CC /* FishSceneView.swift in Sources */,
 				32ECE0CA2AD0EA2E0023EAAE /* TodayView.swift in Sources */,

@@ -40,6 +40,31 @@ struct FishView: View {
                                     .matchedGeometryEffect(id: "fish", in: namespace)
                                     .frame(width: 200, height: 200)
                                     .position(getPoint(for: viewModel.fishLocation, frameWidth: geometry.size.width))
+                                
+                                let unit = geometry.size.width / 1179
+                                
+                                VStack(spacing: 0) {
+                                    Spacer()
+                                    ForEach(0..<10) { index in
+                                        Text("\(9 - index)")
+                                            .frame(height: unit * 150)
+                                            .id(9 - index)
+                                    }
+                                    .opacity(0)
+                                }
+                                .padding(.bottom, 1935 * unit - (Double(10) * unit * 150))
+                            }
+                            .onAppear {
+                                withAnimation {
+                                    proxy.scrollTo(viewModel.fishLocation, anchor: .center)
+                                }
+                            }
+                            .onChange(of: viewModel.fishLocation) { newValue in
+                                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+                                    withAnimation {
+                                        proxy.scrollTo(viewModel.fishLocation, anchor: .center)
+                                    }
+                                }
                             }
                         }
                     }
