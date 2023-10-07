@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChallengesView: View {
     
+    @EnvironmentObject private var viewModel: ViewModel
+    
     @Binding var height: Double
     
     @State private var multiplier = 0.5
@@ -55,22 +57,32 @@ struct ChallengesView: View {
                         .padding(.horizontal)
                     
                     ScrollView {
-                        ChallengeRowView(challenge: .sleep)
-                        ChallengeRowView(challenge: .moodLog)
-                            .padding(.bottom)
+                        ForEach($viewModel.challenges) { $challenge in
+                            ChallengeRowView(challenge: challenge.challenge, 
+                                             timesCompleted: $challenge.timesCompleted) {
+                                withAnimation {
+                                    viewModel.brineShrimp += challenge.challenge.reward
+                                    viewModel.challenges.removeAll {
+                                        $0.id == challenge.id
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.bottom)
                     }
+                    .scrollContentBackground(.hidden)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .frame(height: height, alignment: .top)
-            .background(.regularMaterial)
+            .background(.ultraThinMaterial)
             .clipShape(UnevenRoundedRectangle(topLeadingRadius: 16, topTrailingRadius: 16))
             .frame(maxHeight: .infinity, alignment: .bottom)
             .onAppear {
                 height = geometry.size.height * 0.5
             }
         }
-        .coordinateSpace(.named("ChallengeCoordinate"))
+        .coordinateSpace(name: "ChallengeCoordinate")
     }
 }
 

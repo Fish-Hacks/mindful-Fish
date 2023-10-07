@@ -10,6 +10,8 @@ import SceneKit
 
 class FishRendererManager: NSObject, ObservableObject, SCNSceneRendererDelegate {
     
+    @Published var isFishFocused = false
+    
     var scene: SCNScene?
     
     override init() {

@@ -10,44 +10,74 @@ import SceneKit
 
 struct FishView: View {
     
+    @StateObject var viewModel = ViewModel()
     @StateObject var fishRendererManager = FishRendererManager()
     
     @State private var drawerHeight = 64.0
     
+    @Namespace var namespace
+    
     var body: some View {
         ZStack {
-            GeometryReader { geometry in
-                ScrollView {
-                    ScrollViewReader { proxy in
-                        ZStack {
-                            let firstElement = CGPoint(x: 722.0 / 1179.0, y: 1784 / 2556)
-                            
-                            Image(.samplePath)
-                                .resizable()
-                                .frame(width: geometry.size.width, height: geometry.size.width * 2556 / 1179)
-                            
-                            FishSceneView(fishRendererManager: fishRendererManager)
-                                .frame(width: 200, height: 200)
-                                .position(getPoint(for: 0, frameWidth: geometry.size.width))
+            if fishRendererManager.isFishFocused {
+                FishSceneView(fishRendererManager: fishRendererManager)
+                    .matchedGeometryEffect(id: "fish", in: namespace)
+                    .onTapGesture {
+                        withAnimation {
+                            fishRendererManager.isFishFocused.toggle()
                         }
                     }
+            } else {
+                GeometryReader { geometry in
+                    ScrollView {
+                        ScrollViewReader { proxy in
+                            ZStack {
+                                Image(.samplePath)
+                                    .resizable()
+                                    .frame(width: geometry.size.width, height: geometry.size.width * 2556 / 1179)
+                                
+                                FishSceneView(fishRendererManager: fishRendererManager)
+                                    .matchedGeometryEffect(id: "fish", in: namespace)
+                                    .frame(width: 200, height: 200)
+                                    .position(getPoint(for: 0, frameWidth: geometry.size.width))
+                            }
+                        }
+                    }
+                    .padding(.top, 128)
+                    .background(
+                        Image(.gradientStrip)
+                            .resizable()
+                    )
                 }
-                .padding(.top, 128)
-                .background(
-                    Image(.gradientStrip)
-                        .resizable()
-                )
+                .clipped()
+                .onTapGesture {
+                    withAnimation {
+                        fishRendererManager.isFishFocused.toggle()
+                    }
+                }
+                .ignoresSafeArea(.container, edges: .top)
+                .padding(.bottom, drawerHeight - 16)
             }
-            .clipped()
-            .ignoresSafeArea(.container, edges: .top)
-            .padding(.bottom, drawerHeight - 16)
             
             VStack {
                 VStack {
-                    Text("Location 1")
-                        .font(.headline)
-                        .foregroundStyle(.secondary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack(spacing: 0) {
+                        Text("Location 1")
+                            .font(.headline)
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Image(systemName: "bolt.fill")
+                            .foregroundStyle(.secondary)
+                            .padding(.trailing, 4)
+                        
+                        Text("\(viewModel.brineShrimp)/100")
+                            .monospacedDigit()
+                            .contentTransition(.numericText())
+                            .font(.headline)
+                            .foregroundStyle(.secondary)
+                    }
+                    
                     Text("Coral Reef")
                         .font(.title)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -72,6 +102,7 @@ struct FishView: View {
                 ChallengesView(height: $drawerHeight)
             }
         }
+        .environmentObject(viewModel)
     }
     
     

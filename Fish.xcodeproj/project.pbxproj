@@ -12,13 +12,18 @@
 		323C5A742AD05AD600CB8694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323C5A732AD05AD600CB8694 /* Assets.xcassets */; };
 		323C5A772AD05AD600CB8694 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323C5A762AD05AD600CB8694 /* Preview Assets.xcassets */; };
 		323C5A7E2AD0670B00CB8694 /* FishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C5A7D2AD0670B00CB8694 /* FishView.swift */; };
-		323C5A802AD0677F00CB8694 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C5A7F2AD0677F00CB8694 /* LogView.swift */; };
+		323C5A802AD0677F00CB8694 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323C5A7F2AD0677F00CB8694 /* JournalView.swift */; };
 		32797BBD2AD072ED0041E3CC /* ChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32797BBC2AD072ED0041E3CC /* ChallengesView.swift */; };
 		32797BBF2AD0B2C90041E3CC /* ChallengeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32797BBE2AD0B2C90041E3CC /* ChallengeRowView.swift */; };
 		32797BC12AD0B2CD0041E3CC /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32797BC02AD0B2CD0041E3CC /* Challenge.swift */; };
 		32797BC32AD0B4E60041E3CC /* Fish.scn in Resources */ = {isa = PBXBuildFile; fileRef = 32797BC22AD0B4E60041E3CC /* Fish.scn */; };
 		32797BC52AD0B5750041E3CC /* FishRendererManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32797BC42AD0B5750041E3CC /* FishRendererManager.swift */; };
 		32797BC72AD0B6CC0041E3CC /* FishSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32797BC62AD0B6CC0041E3CC /* FishSceneView.swift */; };
+		32ECE0C62AD0DDF90023EAAE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0C52AD0DDF90023EAAE /* ViewModel.swift */; };
+		32ECE0C82AD0E5970023EAAE /* ChallengeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0C72AD0E5970023EAAE /* ChallengeData.swift */; };
+		32ECE0CA2AD0EA2E0023EAAE /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */; };
+		32ECE0CC2AD0EB320023EAAE /* TodayArticlePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */; };
+		32ECE0CE2AD0ED770023EAAE /* TodayArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,13 +33,18 @@
 		323C5A732AD05AD600CB8694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		323C5A762AD05AD600CB8694 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		323C5A7D2AD0670B00CB8694 /* FishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishView.swift; sourceTree = "<group>"; };
-		323C5A7F2AD0677F00CB8694 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		323C5A7F2AD0677F00CB8694 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		32797BBC2AD072ED0041E3CC /* ChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesView.swift; sourceTree = "<group>"; };
 		32797BBE2AD0B2C90041E3CC /* ChallengeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRowView.swift; sourceTree = "<group>"; };
 		32797BC02AD0B2CD0041E3CC /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		32797BC22AD0B4E60041E3CC /* Fish.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Fish.scn; sourceTree = "<group>"; };
 		32797BC42AD0B5750041E3CC /* FishRendererManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishRendererManager.swift; sourceTree = "<group>"; };
 		32797BC62AD0B6CC0041E3CC /* FishSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishSceneView.swift; sourceTree = "<group>"; };
+		32ECE0C52AD0DDF90023EAAE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		32ECE0C72AD0E5970023EAAE /* ChallengeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeData.swift; sourceTree = "<group>"; };
+		32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayArticlePreviewView.swift; sourceTree = "<group>"; };
+		32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayArticle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +79,19 @@
 			children = (
 				323C5A6F2AD05AD400CB8694 /* FishApp.swift */,
 				323C5A712AD05AD400CB8694 /* ContentView.swift */,
+				32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */,
+				32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */,
+				32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */,
 				323C5A7D2AD0670B00CB8694 /* FishView.swift */,
+				32ECE0C52AD0DDF90023EAAE /* ViewModel.swift */,
+				32ECE0C72AD0E5970023EAAE /* ChallengeData.swift */,
 				32797BC62AD0B6CC0041E3CC /* FishSceneView.swift */,
 				32797BC42AD0B5750041E3CC /* FishRendererManager.swift */,
 				32797BBC2AD072ED0041E3CC /* ChallengesView.swift */,
 				32797BC22AD0B4E60041E3CC /* Fish.scn */,
 				32797BBE2AD0B2C90041E3CC /* ChallengeRowView.swift */,
 				32797BC02AD0B2CD0041E3CC /* Challenge.swift */,
-				323C5A7F2AD0677F00CB8694 /* LogView.swift */,
+				323C5A7F2AD0677F00CB8694 /* JournalView.swift */,
 				323C5A732AD05AD600CB8694 /* Assets.xcassets */,
 				323C5A752AD05AD600CB8694 /* Preview Content */,
 			);
@@ -162,14 +177,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32ECE0C62AD0DDF90023EAAE /* ViewModel.swift in Sources */,
+				32ECE0C82AD0E5970023EAAE /* ChallengeData.swift in Sources */,
 				32797BC52AD0B5750041E3CC /* FishRendererManager.swift in Sources */,
+				32ECE0CC2AD0EB320023EAAE /* TodayArticlePreviewView.swift in Sources */,
 				32797BC12AD0B2CD0041E3CC /* Challenge.swift in Sources */,
 				32797BBD2AD072ED0041E3CC /* ChallengesView.swift in Sources */,
 				323C5A722AD05AD400CB8694 /* ContentView.swift in Sources */,
-				323C5A802AD0677F00CB8694 /* LogView.swift in Sources */,
+				323C5A802AD0677F00CB8694 /* JournalView.swift in Sources */,
 				32797BBF2AD0B2C90041E3CC /* ChallengeRowView.swift in Sources */,
 				323C5A702AD05AD400CB8694 /* FishApp.swift in Sources */,
 				32797BC72AD0B6CC0041E3CC /* FishSceneView.swift in Sources */,
+				32ECE0CA2AD0EA2E0023EAAE /* TodayView.swift in Sources */,
+				32ECE0CE2AD0ED770023EAAE /* TodayArticle.swift in Sources */,
 				323C5A7E2AD0670B00CB8694 /* FishView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +332,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,6 +362,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,5 +1,5 @@
 //
-//  LogView.swift
+//  JournalView.swift
 //  Fish
 //
 //  Created by Jia Chen Yee on 7/10/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LogView: View {
+struct JournalView: View {
     @State private var todayLogMessage = ""
     
     var body: some View {
@@ -140,5 +140,5 @@ struct LogView: View {
 }
 
 #Preview {
-    LogView()
+    JournalView()
 }

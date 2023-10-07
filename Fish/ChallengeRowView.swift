@@ -10,6 +10,9 @@ import SwiftUI
 struct ChallengeRowView: View {
     
     var challenge: Challenge
+    @Binding var timesCompleted: Int
+    
+    var onDelete: (() -> Void)
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,7 +23,9 @@ struct ChallengeRowView: View {
                     .frame(width: 24)
                     .foregroundStyle(challenge.accentColor)
                     .frame(width: 36, alignment: .leading)
+                
                 Text(challenge.title)
+                
                 Spacer()
                 
                 Image(systemName: "bolt.fill")
@@ -42,26 +47,49 @@ struct ChallengeRowView: View {
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(0..<challenge.completionItems, id: \.self) { index in
-                        ZStack {
-                            Circle()
-                                .stroke(challenge.accentColor, lineWidth: 3)
-                                .padding(1.5)
-                                .frame(width: 32, height: 32)
-                            Text("\(index + 1)")
-                                .bold()
-                                .foregroundStyle(challenge.accentColor)
+                        if index < timesCompleted {
+                            ZStack {
+                                Circle()
+                                    .fill(challenge.accentColor)
+                                    .frame(width: 32, height: 32)
+                                Image(systemName: "checkmark")
+                                    .bold()
+                                    .foregroundStyle(.white)
+                            }
+                        } else {
+                            ZStack {
+                                Circle()
+                                    .stroke(challenge.accentColor, lineWidth: 3)
+                                    .padding(1.5)
+                                    .frame(width: 32, height: 32)
+                                Text("\(index + 1)")
+                                    .bold()
+                                    .foregroundStyle(challenge.accentColor)
+                            }
                         }
                     }
                 }
             }
         }
         .padding()
-        .background(.thickMaterial)
+        .background(.thickMaterial.opacity(0.98))
+        .background(.black)
         .clipShape(RoundedRectangle(cornerRadius: 8))
+        .onTapGesture {
+            withAnimation {
+                timesCompleted += 1
+            }
+            
+            if timesCompleted == 3 {
+                onDelete()
+            }
+        }
         .padding(.horizontal)
     }
 }
 
 #Preview {
-    ChallengeRowView(challenge: .sleep)
+    ChallengeRowView(challenge: .sleep, timesCompleted: .constant(1)) {
+        
+    }
 }
