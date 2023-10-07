@@ -25,6 +25,10 @@
 		32ECE0CC2AD0EB320023EAAE /* TodayArticlePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */; };
 		32ECE0CE2AD0ED770023EAAE /* TodayArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */; };
 		32ECE0D02AD0FC7E0023EAAE /* MonthSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0CF2AD0FC7E0023EAAE /* MonthSummaryView.swift */; };
+		32ECE0D62AD1263A0023EAAE /* MonthsSummaryCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0D52AD1263A0023EAAE /* MonthsSummaryCoverView.swift */; };
+		32ECE0D82AD126520023EAAE /* MonthsSummaryMoodOfMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0D72AD126520023EAAE /* MonthsSummaryMoodOfMonth.swift */; };
+		32ECE0DA2AD128170023EAAE /* MonthsSummaryTrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0D92AD128170023EAAE /* MonthsSummaryTrendsView.swift */; };
+		32ECE0DC2AD128830023EAAE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0DB2AD128830023EAAE /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayArticlePreviewView.swift; sourceTree = "<group>"; };
 		32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayArticle.swift; sourceTree = "<group>"; };
 		32ECE0CF2AD0FC7E0023EAAE /* MonthSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSummaryView.swift; sourceTree = "<group>"; };
+		32ECE0D52AD1263A0023EAAE /* MonthsSummaryCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsSummaryCoverView.swift; sourceTree = "<group>"; };
+		32ECE0D72AD126520023EAAE /* MonthsSummaryMoodOfMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsSummaryMoodOfMonth.swift; sourceTree = "<group>"; };
+		32ECE0D92AD128170023EAAE /* MonthsSummaryTrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsSummaryTrendsView.swift; sourceTree = "<group>"; };
+		32ECE0DB2AD128830023EAAE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 			children = (
 				323C5A6F2AD05AD400CB8694 /* FishApp.swift */,
 				323C5A712AD05AD400CB8694 /* ContentView.swift */,
+				32ECE0DB2AD128830023EAAE /* ChatView.swift */,
 				32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */,
 				32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */,
 				32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */,
@@ -91,6 +100,9 @@
 				32797BC42AD0B5750041E3CC /* FishRendererManager.swift */,
 				32797BBC2AD072ED0041E3CC /* ChallengesView.swift */,
 				32ECE0CF2AD0FC7E0023EAAE /* MonthSummaryView.swift */,
+				32ECE0D92AD128170023EAAE /* MonthsSummaryTrendsView.swift */,
+				32ECE0D72AD126520023EAAE /* MonthsSummaryMoodOfMonth.swift */,
+				32ECE0D52AD1263A0023EAAE /* MonthsSummaryCoverView.swift */,
 				32797BC22AD0B4E60041E3CC /* Fish.scn */,
 				32797BBE2AD0B2C90041E3CC /* ChallengeRowView.swift */,
 				32797BC02AD0B2CD0041E3CC /* Challenge.swift */,
@@ -180,14 +192,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32ECE0DC2AD128830023EAAE /* ChatView.swift in Sources */,
 				32ECE0C62AD0DDF90023EAAE /* ViewModel.swift in Sources */,
 				32ECE0C82AD0E5970023EAAE /* ChallengeData.swift in Sources */,
 				32797BC52AD0B5750041E3CC /* FishRendererManager.swift in Sources */,
 				32ECE0CC2AD0EB320023EAAE /* TodayArticlePreviewView.swift in Sources */,
+				32ECE0DA2AD128170023EAAE /* MonthsSummaryTrendsView.swift in Sources */,
+				32ECE0D82AD126520023EAAE /* MonthsSummaryMoodOfMonth.swift in Sources */,
 				32797BC12AD0B2CD0041E3CC /* Challenge.swift in Sources */,
 				32797BBD2AD072ED0041E3CC /* ChallengesView.swift in Sources */,
 				323C5A722AD05AD400CB8694 /* ContentView.swift in Sources */,
 				323C5A802AD0677F00CB8694 /* JournalView.swift in Sources */,
+				32ECE0D62AD1263A0023EAAE /* MonthsSummaryCoverView.swift in Sources */,
 				32797BBF2AD0B2C90041E3CC /* ChallengeRowView.swift in Sources */,
 				32ECE0D02AD0FC7E0023EAAE /* MonthSummaryView.swift in Sources */,
 				323C5A702AD05AD400CB8694 /* FishApp.swift in Sources */,

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TodayView: View {
     
+    @EnvironmentObject var viewModel: ViewModel
+    
     @Namespace var namespace
     
     @State private var selectedArticle: TodayArticle?
@@ -20,7 +22,7 @@ struct TodayView: View {
                     ScrollView {
                         VStack(alignment: .leading) {
                             ZStack(alignment: .bottom) {
-                                Image(.sampleToday)
+                                selectedArticle.image
                                     .resizable()
                                     .matchedGeometryEffect(id: "\(selectedArticle.title)image", in: namespace)
                                     .scaledToFit()
@@ -63,6 +65,10 @@ struct TodayView: View {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 24))
                             .foregroundStyle(.white)
+                            .background {
+                                Circle()
+                                    .fill(.blue)
+                            }
                     }
                     .padding()
                 }
@@ -76,16 +82,53 @@ struct TodayView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal)
                         
-                        TodayArticlePreviewView(namespace: namespace, article: .sleep) {
-                            withAnimation(.easeInOut) {
-                                selectedArticle = .sleep
+                        VStack {
+                            HStack(spacing: 0) {
+                                Text("Location 1")
+                                    .font(.headline)
+                                    .foregroundStyle(.secondary)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                Image(systemName: "bolt.fill")
+                                    .foregroundStyle(.secondary)
+                                    .padding(.trailing, 4)
+                                
+                                Text("\(viewModel.brineShrimp)/100")
+                                    .monospacedDigit()
+                                    .contentTransition(.numericText())
+                                    .font(.headline)
+                                    .foregroundStyle(.secondary)
                             }
+                            
+                            Text("Coral Reef")
+                                .font(.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .fontWeight(.bold)
+                            
+                            GeometryReader { geometry in
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.secondary)
+                                RoundedRectangle(cornerRadius: 8)
+                                    .foregroundStyle(.blue)
+                                    .frame(width: min(geometry.size.width * (Double(viewModel.brineShrimp) / 100), geometry.size.width))
+                            }
+                            .frame(height: 16)
                         }
-                        .padding(.horizontal)
+                        .padding()
+                        .background(.thickMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .padding()
                         
                         TodayArticlePreviewView(namespace: namespace, article: .jimmy) {
                             withAnimation(.easeInOut) {
                                 selectedArticle = .jimmy
+                            }
+                        }
+                        .padding(.horizontal)
+                        
+                        TodayArticlePreviewView(namespace: namespace, article: .sleep) {
+                            withAnimation(.easeInOut) {
+                                selectedArticle = .sleep
                             }
                         }
                         .padding(.horizontal)

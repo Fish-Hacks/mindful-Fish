@@ -10,8 +10,8 @@ import SceneKit
 
 struct FishView: View {
     
-    @StateObject var viewModel = ViewModel()
-    @StateObject var fishRendererManager = FishRendererManager()
+    @EnvironmentObject var viewModel: ViewModel
+    @EnvironmentObject var fishRendererManager: FishRendererManager
     
     @State private var drawerHeight = 64.0
     
@@ -135,7 +135,6 @@ struct FishView: View {
                 ChallengesView(height: $drawerHeight)
             }
         }
-        .environmentObject(viewModel)
     }
     
     

@@ -21,7 +21,7 @@ struct TodayArticlePreviewView: View {
         } label: {
             ZStack(alignment: .bottom) {
                 GeometryReader { geometry in
-                    Image(.sampleToday)
+                    article.image
                         .resizable()
                         .matchedGeometryEffect(id: "\(article.title)image", in: namespace)
                         .scaledToFill()

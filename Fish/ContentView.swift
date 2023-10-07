@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var viewModel = ViewModel()
+    @StateObject var fishRendererManager = FishRendererManager()
+    
     var body: some View {
         TabView {
             TodayView()
@@ -25,11 +29,13 @@ struct ContentView: View {
                     Label("Journal", systemImage: "list.bullet")
                 }
             
-            Text("")
+            ChatView()
                 .tabItem {
-                    Label("Support", systemImage: "phone")
+                    Label("Chat", systemImage: "bubble.right.fill")
                 }
         }
+        .environmentObject(viewModel)
+        .environmentObject(fishRendererManager)
     }
 }
 
