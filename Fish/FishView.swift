@@ -19,16 +19,21 @@ struct FishView: View {
     
     var body: some View {
         ZStack {
-            if fishRendererManager.isFishFocused {
-                FishSceneView(fishRendererManager: fishRendererManager)
-                    .matchedGeometryEffect(id: "fish", in: namespace)
-                    .onTapGesture {
-                        withAnimation {
-                            fishRendererManager.isFishFocused.toggle()
-                        }
-                    }
-            } else {
+            Group {
                 GeometryReader { geometry in
+                    if fishRendererManager.isFishFocused {
+                        FishSceneView(fishRendererManager: fishRendererManager)
+                            .matchedGeometryEffect(id: "fish", in: namespace)
+                            .onTapGesture {
+                                withAnimation {
+                                    fishRendererManager.isFishFocused.toggle()
+                                }
+                            }
+                            .background(
+                                Image(.gradientStrip)
+                                    .resizable()
+                            )
+                    }
                     ScrollView {
                         ScrollViewReader { proxy in
                             ZStack {
@@ -36,10 +41,12 @@ struct FishView: View {
                                     .resizable()
                                     .frame(width: geometry.size.width, height: geometry.size.width * 2556 / 1179)
                                 
-                                FishSceneView(fishRendererManager: fishRendererManager)
-                                    .matchedGeometryEffect(id: "fish", in: namespace)
-                                    .frame(width: 200, height: 200)
-                                    .position(getPoint(for: viewModel.fishLocation, frameWidth: geometry.size.width))
+                                if !fishRendererManager.isFishFocused {
+                                    FishSceneView(fishRendererManager: fishRendererManager)
+                                        .frame(width: 200, height: 200)
+                                        .matchedGeometryEffect(id: "fish", in: namespace)
+                                        .position(getPoint(for: viewModel.fishLocation, frameWidth: geometry.size.width))
+                                }
                                 
                                 let unit = geometry.size.width / 1179
                                 
@@ -73,6 +80,7 @@ struct FishView: View {
                         Image(.gradientStrip)
                             .resizable()
                     )
+                    .opacity(fishRendererManager.isFishFocused ? 0 : 1)
                 }
                 .clipped()
                 .onTapGesture {
@@ -133,6 +141,7 @@ struct FishView: View {
     
     func getPoint(for positionIndex: Int, frameWidth: Double) -> CGPoint {
         let unit = frameWidth / 1179
+        
         let yOffset = Double(positionIndex) * unit * 150
         
         let xOffsets = [
@@ -143,6 +152,8 @@ struct FishView: View {
         ]
         
         let xOffset = xOffsets[positionIndex % xOffsets.count]
+        
+        print(1935 * unit - yOffset)
         
         return CGPoint(x: 872 * unit - xOffset,
                        y: 1935 * unit - yOffset)
