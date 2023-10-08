@@ -31,7 +31,7 @@ struct MonthsSummaryTrendsView: View {
                 }
                 .font(.system(size: 32, weight: .bold))
                 
-                Text("You've gotten more sleep this month!")
+                Text("You’ve gotten more sleep this month!")
                     .font(.system(size: 48, weight: .bold))
                     .padding(.bottom)
                 

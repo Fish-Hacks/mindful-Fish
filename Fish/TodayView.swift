@@ -84,7 +84,7 @@ struct TodayView: View {
                         
                         VStack {
                             HStack(spacing: 0) {
-                                Text("Location 1")
+                                Text(viewModel.brineShrimp <= 100 ? "Location 1" : "Location 2")
                                     .font(.headline)
                                     .foregroundStyle(.secondary)
                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -93,14 +93,14 @@ struct TodayView: View {
                                     .foregroundStyle(.secondary)
                                     .padding(.trailing, 4)
                                 
-                                Text("\(viewModel.brineShrimp)/100")
+                                Text("\(viewModel.brineShrimp % 100)/100")
                                     .monospacedDigit()
                                     .contentTransition(.numericText())
                                     .font(.headline)
                                     .foregroundStyle(.secondary)
                             }
                             
-                            Text("Coral Reef")
+                            Text(viewModel.brineShrimp <= 100 ? "Coral Reef" : "Deep Sea")
                                 .font(.title)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .fontWeight(.bold)
@@ -110,7 +110,7 @@ struct TodayView: View {
                                     .fill(.secondary)
                                 RoundedRectangle(cornerRadius: 8)
                                     .foregroundStyle(.blue)
-                                    .frame(width: min(geometry.size.width * (Double(viewModel.brineShrimp) / 100), geometry.size.width))
+                                    .frame(width: min(geometry.size.width * (Double(viewModel.brineShrimp % 100) / 100), geometry.size.width))
                             }
                             .frame(height: 16)
                         }

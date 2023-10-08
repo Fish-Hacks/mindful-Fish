@@ -9,7 +9,10 @@ import SwiftUI
 
 struct JournalView: View {
     @State private var todayLogMessage = ""
+    @State private var selectedEmotion: Log.Emotion?
     @State private var showMonthlyRecap = false
+    
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         NavigationStack {
@@ -18,21 +21,47 @@ struct JournalView: View {
                     Text("Today, \(Date.now.formatted(date: .abbreviated, time: .omitted))")
                         .font(.headline)
                     
-                    Text("What did you do today?")
-                        .font(.subheadline)
+                    Divider()
+                    
+                    Group {
+                        Text("**Progress**: What did you do today?")
+                        Text("**Plans**: What do you plan to do tomorrow?")
+                        Text("**Problems**: What went wrong today?")
+                    }
+                    .font(.subheadline)
                     
                     TextEditor(text: $todayLogMessage)
                         .scrollContentBackground(.hidden)
                         .frame(height: 64)
                         .padding(-4)
                     
+                    Divider()
+                    
+                    Text("How do you feel?")
+                        .font(.subheadline)
+                    
                     ScrollView(.horizontal) {
                         HStack {
-                            Text("🤣")
-                            Text("😀")
-                            Text("😐")
-                            Text("🙁")
-                            Text("😭")
+                            ForEach(Log.Emotion.allCases, id: \.description) { emotion in
+                                Button {
+                                    withAnimation {
+                                        selectedEmotion = emotion
+                                    }
+                                } label: {
+                                    if selectedEmotion == emotion || selectedEmotion == nil {
+                                        emotion.image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 48)
+                                    } else {
+                                        emotion.image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 48)
+                                            .opacity(0.2)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -42,53 +71,24 @@ struct JournalView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .padding(.horizontal)
                 
-                VStack(alignment: .leading) {
-                    Text("Weekly Recap")
-                        .font(.headline)
-                    
-                    Text("Last week, you [LLM summary with advice].")
-                        .padding(.bottom)
-                }
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(.thickMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                .padding(.horizontal)
-                
-                VStack(alignment: .leading) {
-                    Text("Monthly Summary")
-                        .font(.headline)
-                    
-                    ScrollView(.horizontal) {
-                        HStack {
-                            Button {
-                                
-                            } label: {
-                                ZStack {
-                                    Circle()
-                                        .fill(.blue.opacity(0.2))
-                                    Text("Feb")
-                                        .bold()
-                                        .foregroundStyle(.blue)
-                                }
-                                .frame(width: 48, height: 48)
-                            }
+                Button {
+                    showMonthlyRecap.toggle()
+                } label: {
+                    HStack(alignment: .center) {
+                        VStack(alignment: .leading) {
+                            Text("September’s Summary")
+                                .font(.headline)
                             
-                            Button {
-                                showMonthlyRecap.toggle()
-                            } label: {
-                                ZStack {
-                                    Circle()
-                                        .fill(.blue.opacity(0.2))
-                                    Text("Jan")
-                                        .bold() 
-                                        .foregroundStyle(.blue)
-                                }
-                                .frame(width: 48, height: 48)
-                            }
+                            Text("Get a summary of your last month!")
+                                .padding(.bottom)
                         }
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
                     }
                 }
+                .foregroundStyle(.black)
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(.thickMaterial)
@@ -100,7 +100,7 @@ struct JournalView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("Logs")
+                    Text("Journal")
                         .font(.headline)
                         .padding(.bottom, 8)
                     
@@ -115,16 +115,30 @@ struct JournalView: View {
                             }
                         }
                         
-                        ForEach(0..<4) { _ in
+                        ForEach(0..<4) { week in
                             HStack(spacing: 8) {
                                 ForEach(0..<7) { weekNumber in
                                     ZStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(.blue)
-                                            .aspectRatio(1, contentMode: .fit)
-                                            .opacity(0.5)
-                                        Text("😭")
-                                            .font(.system(size: 16))
+                                        let calendar = Calendar.current
+                                        let log = viewModel.logs.first {
+                                            calendar.component(.day, from: $0.date) == weekNumber * week
+                                        }
+                                        
+                                        if let log {
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(log.emotion.color)
+                                                .aspectRatio(1, contentMode: .fit)
+                                                .opacity(0.5)
+                                            log.emotion.image
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(4)
+                                        } else {
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(.gray)
+                                                .aspectRatio(1, contentMode: .fit)
+                                                .opacity(0.1)
+                                        }
                                     }
                                 }
                             }
@@ -138,7 +152,7 @@ struct JournalView: View {
                 .padding(.horizontal)
                 
             }
-            .navigationTitle("Logs")
+            .navigationTitle("Journal")
         }
     }
 }

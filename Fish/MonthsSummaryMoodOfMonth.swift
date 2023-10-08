@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MonthsSummaryMoodOfMonth: View {
+    
+    var index: Int
+    
     var body: some View {
         ZStack {
             Color.blue
@@ -29,8 +32,4 @@ struct MonthsSummaryMoodOfMonth: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
         }
     }
-}
-
-#Preview {
-    MonthsSummaryMoodOfMonth()
 }

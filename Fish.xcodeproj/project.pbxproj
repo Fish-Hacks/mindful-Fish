@@ -19,6 +19,9 @@
 		32797BC32AD0B4E60041E3CC /* Fish.scn in Resources */ = {isa = PBXBuildFile; fileRef = 32797BC22AD0B4E60041E3CC /* Fish.scn */; };
 		32797BC52AD0B5750041E3CC /* FishRendererManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32797BC42AD0B5750041E3CC /* FishRendererManager.swift */; };
 		32797BC72AD0B6CC0041E3CC /* FishSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32797BC62AD0B6CC0041E3CC /* FishSceneView.swift */; };
+		32AEF0A12AD152F00096A2F4 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AEF0A02AD152F00096A2F4 /* Log.swift */; };
+		32AEF0A32AD15A170096A2F4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AEF0A22AD15A170096A2F4 /* Message.swift */; };
+		32AEF0A62AD1686B0096A2F4 /* MonthsSummaryPointsEarned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AEF0A52AD1686B0096A2F4 /* MonthsSummaryPointsEarned.swift */; };
 		32ECE0C62AD0DDF90023EAAE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0C52AD0DDF90023EAAE /* ViewModel.swift */; };
 		32ECE0C82AD0E5970023EAAE /* ChallengeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0C72AD0E5970023EAAE /* ChallengeData.swift */; };
 		32ECE0CA2AD0EA2E0023EAAE /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */; };
@@ -45,6 +48,10 @@
 		32797BC22AD0B4E60041E3CC /* Fish.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Fish.scn; sourceTree = "<group>"; };
 		32797BC42AD0B5750041E3CC /* FishRendererManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishRendererManager.swift; sourceTree = "<group>"; };
 		32797BC62AD0B6CC0041E3CC /* FishSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishSceneView.swift; sourceTree = "<group>"; };
+		32AEF0A02AD152F00096A2F4 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		32AEF0A22AD15A170096A2F4 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		32AEF0A42AD161970096A2F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		32AEF0A52AD1686B0096A2F4 /* MonthsSummaryPointsEarned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsSummaryPointsEarned.swift; sourceTree = "<group>"; };
 		32ECE0C52AD0DDF90023EAAE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		32ECE0C72AD0E5970023EAAE /* ChallengeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeData.swift; sourceTree = "<group>"; };
 		32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
@@ -87,9 +94,11 @@
 		323C5A6E2AD05AD400CB8694 /* Fish */ = {
 			isa = PBXGroup;
 			children = (
+				32AEF0A42AD161970096A2F4 /* Info.plist */,
 				323C5A6F2AD05AD400CB8694 /* FishApp.swift */,
 				323C5A712AD05AD400CB8694 /* ContentView.swift */,
 				32ECE0DB2AD128830023EAAE /* ChatView.swift */,
+				32AEF0A22AD15A170096A2F4 /* Message.swift */,
 				32ECE0C92AD0EA2E0023EAAE /* TodayView.swift */,
 				32ECE0CB2AD0EB320023EAAE /* TodayArticlePreviewView.swift */,
 				32ECE0CD2AD0ED770023EAAE /* TodayArticle.swift */,
@@ -97,9 +106,11 @@
 				32ECE0C52AD0DDF90023EAAE /* ViewModel.swift */,
 				32ECE0C72AD0E5970023EAAE /* ChallengeData.swift */,
 				32797BC62AD0B6CC0041E3CC /* FishSceneView.swift */,
+				32AEF0A02AD152F00096A2F4 /* Log.swift */,
 				32797BC42AD0B5750041E3CC /* FishRendererManager.swift */,
 				32797BBC2AD072ED0041E3CC /* ChallengesView.swift */,
 				32ECE0CF2AD0FC7E0023EAAE /* MonthSummaryView.swift */,
+				32AEF0A52AD1686B0096A2F4 /* MonthsSummaryPointsEarned.swift */,
 				32ECE0D92AD128170023EAAE /* MonthsSummaryTrendsView.swift */,
 				32ECE0D72AD126520023EAAE /* MonthsSummaryMoodOfMonth.swift */,
 				32ECE0D52AD1263A0023EAAE /* MonthsSummaryCoverView.swift */,
@@ -194,9 +205,11 @@
 			files = (
 				32ECE0DC2AD128830023EAAE /* ChatView.swift in Sources */,
 				32ECE0C62AD0DDF90023EAAE /* ViewModel.swift in Sources */,
+				32AEF0A12AD152F00096A2F4 /* Log.swift in Sources */,
 				32ECE0C82AD0E5970023EAAE /* ChallengeData.swift in Sources */,
 				32797BC52AD0B5750041E3CC /* FishRendererManager.swift in Sources */,
 				32ECE0CC2AD0EB320023EAAE /* TodayArticlePreviewView.swift in Sources */,
+				32AEF0A32AD15A170096A2F4 /* Message.swift in Sources */,
 				32ECE0DA2AD128170023EAAE /* MonthsSummaryTrendsView.swift in Sources */,
 				32ECE0D82AD126520023EAAE /* MonthsSummaryMoodOfMonth.swift in Sources */,
 				32797BC12AD0B2CD0041E3CC /* Challenge.swift in Sources */,
@@ -207,6 +220,7 @@
 				32797BBF2AD0B2C90041E3CC /* ChallengeRowView.swift in Sources */,
 				32ECE0D02AD0FC7E0023EAAE /* MonthSummaryView.swift in Sources */,
 				323C5A702AD05AD400CB8694 /* FishApp.swift in Sources */,
+				32AEF0A62AD1686B0096A2F4 /* MonthsSummaryPointsEarned.swift in Sources */,
 				32797BC72AD0B6CC0041E3CC /* FishSceneView.swift in Sources */,
 				32ECE0CA2AD0EA2E0023EAAE /* TodayView.swift in Sources */,
 				32ECE0CE2AD0ED770023EAAE /* TodayArticle.swift in Sources */,
@@ -347,6 +361,7 @@
 				DEVELOPMENT_TEAM = XL5JK4F896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -377,6 +392,7 @@
 				DEVELOPMENT_TEAM = XL5JK4F896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

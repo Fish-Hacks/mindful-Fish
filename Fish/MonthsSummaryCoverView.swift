@@ -18,8 +18,8 @@ struct MonthsSummaryCoverView: View {
                 .ignoresSafeArea()
             
             VStack(alignment: .leading) {
-                Text("January Summary")
-                    .font(.system(size: 64, weight: .bold))
+                Text("September’s Summary")
+                    .font(.system(size: 54, weight: .bold))
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Spacer()

@@ -39,7 +39,7 @@ struct FishView: View {
                             ZStack {
                                 Image(.samplePath)
                                     .resizable()
-                                    .frame(width: geometry.size.width, height: geometry.size.width * 2556 / 1179)
+                                    .frame(width: geometry.size.width, height: geometry.size.width * 5712 / 1179)
                                 
                                 if !fishRendererManager.isFishFocused {
                                     FishSceneView(fishRendererManager: fishRendererManager)
@@ -59,7 +59,8 @@ struct FishView: View {
                                     }
                                     .opacity(0)
                                 }
-                                .padding(.bottom, 1935 * unit - (Double(10) * unit * 150))
+                                .padding(.bottom, 5712 * unit - (Double(10) * unit * 160))
+                                .offset(y: 1000)
                             }
                             .onAppear {
                                 withAnimation {
@@ -95,7 +96,7 @@ struct FishView: View {
             VStack {
                 VStack {
                     HStack(spacing: 0) {
-                        Text("Location 1")
+                        Text(viewModel.brineShrimp <= 100 ? "Location 1" : "Location 2")
                             .font(.headline)
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -104,14 +105,14 @@ struct FishView: View {
                             .foregroundStyle(.secondary)
                             .padding(.trailing, 4)
                         
-                        Text("\(viewModel.brineShrimp)/100")
+                        Text("\(viewModel.brineShrimp % 100)/100")
                             .monospacedDigit()
                             .contentTransition(.numericText())
                             .font(.headline)
                             .foregroundStyle(.secondary)
                     }
                     
-                    Text("Coral Reef")
+                    Text(viewModel.brineShrimp <= 100 ? "Coral Reef" : "Deep Sea")
                         .font(.title)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .fontWeight(.bold)
@@ -121,7 +122,7 @@ struct FishView: View {
                             .fill(.secondary)
                         RoundedRectangle(cornerRadius: 8)
                             .foregroundStyle(.blue)
-                            .frame(width: min(geometry.size.width * (Double(viewModel.brineShrimp) / 100), geometry.size.width))
+                            .frame(width: min(geometry.size.width * (Double(viewModel.brineShrimp % 100) / 100), geometry.size.width))
                     }
                     .frame(height: 16)
                 }
@@ -141,7 +142,7 @@ struct FishView: View {
     func getPoint(for positionIndex: Int, frameWidth: Double) -> CGPoint {
         let unit = frameWidth / 1179
         
-        let yOffset = Double(positionIndex) * unit * 150
+        let yOffset = Double(positionIndex) * unit * 160
         
         let xOffsets = [
             0,
@@ -152,10 +153,8 @@ struct FishView: View {
         
         let xOffset = xOffsets[positionIndex % xOffsets.count]
         
-        print(1935 * unit - yOffset)
-        
         return CGPoint(x: 872 * unit - xOffset,
-                       y: 1935 * unit - yOffset)
+                       y: 1935 * unit - yOffset + 990)
     }
 }
 

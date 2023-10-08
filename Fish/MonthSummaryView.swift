@@ -18,62 +18,42 @@ struct MonthSummaryView: View {
             MonthsSummaryCoverView()
                 .tag(0)
             
-            MonthsSummaryMoodOfMonth()
+            MonthsSummaryMoodOfMonth(index: index)
                 .tag(1)
             
-            ZStack {
-                Color.yellow
-                    .ignoresSafeArea()
-                
-                GeometryReader { _ in
-                    Image(systemName: "list.clipboard")
-                        .font(.system(size: 329))
-                        .rotationEffect(.degrees(-32))
-                        .opacity(0.3)
-                        .frame(maxHeight: .infinity, alignment: .top)
-                        .offset(x: 128)
-                }
-                .clipped()
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("30")
-                            .font(.system(size: 128, weight: .heavy))
-                        Image(systemName: "bolt.fill")
-                            .font(.system(size: 64, weight: .heavy))
-                            .foregroundStyle(.secondary)
-                    }
-                    .padding(.bottom, -48)
-                    
-                    Text("earned")
-                        .font(.system(size: 64, weight: .bold))
-                        .padding(.bottom)
-                    
-                    Text("You completed 10 challenges!")
-                        .font(.system(size: 24, weight: .regular))
-                }
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
-            }
-            .tag(2)
+            MonthsSummaryPointsEarned(index: index)
+                .tag(2)
+            
+            MonthsSummaryTrendsView()
+                .tag(3)
             
             ZStack {
                 Color.cyan
                     .ignoresSafeArea()
-                VStack(alignment: .leading) {
-                    Text("Journal")
-                        .font(.system(size: 32, weight: .bold))
-                    Text("You indicated XYZ LLM with _ITALIC_ blah")
-                        .font(.system(size: 48, weight: .bold))
-                        .padding(.bottom)
+                
+                GeometryReader { _ in
+                    Image(systemName: "lightbulb")
+                        .font(.system(size: 329))
+                        .rotationEffect(.degrees(25))
+                        .opacity(0.15)
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .offset(x: 128)
+                }
+                .clipped()
+                
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Advice")
+                        .font(.system(size: 24, weight: .bold))
+                    ScrollView {
+                        Text("**Practice mindfulness meditation:** Mindfulness meditation can help you become more aware of your thoughts and feelings, allowing you to manage them better. You can start with short sessions (5-10 minutes)")
+                            .font(.system(size: 32, weight: .regular))
+                    }
+                    .padding(.bottom)
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
             }
-            .tag(3)
-            
-            MonthsSummaryTrendsView()
-                .tag(4)
+            .tag(4)
         }
         .tabViewStyle(.page)
         .onTapGesture {
